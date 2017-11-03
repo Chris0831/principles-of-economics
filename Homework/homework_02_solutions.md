@@ -5,8 +5,11 @@
 The following answers assume that we draw supply and demand curves with price on the y-axis and quantity on the x-axis.
 
 (a) Supply shifts to the left. $P^{e}\uparrow,Q^{e}\downarrow$
+
 (b) Demand shifts to the right. $P^{e}\uparrow,Q^{e}\uparrow$
+
 (c) Demand shifts to the left. $P^{e}\downarrow,Q^{e}\downarrow$
+
 (d) Demand shifts to the right. $P^{e}\uparrow,Q^{e}\uparrow$
 
 ## Problem 2
