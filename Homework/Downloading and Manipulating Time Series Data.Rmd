@@ -58,6 +58,17 @@ plot(data,legend.loc='topleft',auto.legend=TRUE,main="GDP (in Millions of Euros)
 #Note 2: for data in xts format, we can set auto.legend=TRUE in the plot function to automatically include a legend into the plot. However, we will not be able to set the texts for the legend. Instead, the legend texts will be taken directly from the column names of the data. Therefore, it is important to set the names of the data columns to be the legend texts that we want. In this case, we want our legend to be "France" for French GDP and "Germany" for German GDP. Therefore, we set colnames(data) = c("France","Germany"). Finally, legend.loc='topleft' sets the location of the legend to be topleft of the graph. These settings are all unique for data in xts format. 
 ```
 
+# Construct index
+
+Let's construct a GDP index for Germany. Let the index = 1 at 2000.Q1. To do this, we divide German GDP in each period by its 2000.Q1 value. How to extract the 2000.Q1 value from our data? For data in `xts` format, we need to use the `coredata` function. `coredata(x)` extracts the data (numerical values) from time series x[^1]. Therefore, we can write:
+
+```{r, message=FALSE, warning=FALSE}
+germany = germany/coredata(germany)[1] 
+plot(germany,main="German GDP Index (2000.Q1 = 1)")
+```
+
+[^1]: Note: for x in `xts` format, `x[1]` will not give you the value of x in the 1st period. Instead, it returns a time series that contains only the 1st period (i.e., `x[1]` has two columns, the first being the time of the 1st period, the second being its numerical value). To extract the numerical value of the 1st period only, we need to write `coredata(x)[1]`. 
+
 # Convert frequency
 
 Now suppose we want to convert the quarterly data into annual data for France. To do this, for data x in `xts` format, we can use the `apply.yearly` function with the following syntax: `apply.yearly(x,mean)`, which applies the function `mean` to observations in x by year, i.e. averages observations in each year. This will help convert quarterly data into annual data.
